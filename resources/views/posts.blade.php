@@ -120,7 +120,7 @@
                       <label for="codigo">Codigo:</label>
                       <select name="codigo" class="form-control">
                           <option value="problemas_operatividad">PROBLEMAS DE OPERATIVIDAD</option>
-
+                          <option value="mal_comportamiento">MAL COMPORTAMIENTO</option>
                       </select>
                     </div>
                 </div>
@@ -129,7 +129,18 @@
                     <div class="col-sm-10">
                       <label for="codigo_queja">Codigo de Queja:</label>
                       <select name="codigo_queja" class="form-control">
-                          <option value="mala_atencion">MALA ATENCION DE LA DELEGACIÓN</option>
+                          <option value="mala_atencion_dele">MALA ATENCION DE LA DELEGACIÓN</option>
+                          <option value="abandona_servicio">ABANDONA SU SERVICIO</option>
+                          <option value="mala_atencion">MALA ATENCION</option>
+                          <option value="no_cumple_funciones">NO CUMPLE CON LAS FUNCIONES DE SEGURIDAD</option>
+                          <option value="perdida_confianza">PERDIDA DE CONFIANZA</option>
+                          <option value="problema_alchol">PROBLEMAS DE ALCOHOLISMO</option>
+                          <option value="distracion_celular">DISTRACCION CON EL TELEFONO CELULAR</option>
+                          <option value="exceso_familiaridad">EXCESO DE FAMILIARIDAD</option>
+                          <option value="duerme_horario">DUERME EN SU HORARIO DE SERVICIO</option>
+                          <option value="inputualidad">INPUNTUALIDAD</option>
+                          <option value="mala_actitud">MALA ACTITUD DE SERVICIO</option>
+                          
                       </select>
                     </div>
                 </div>
@@ -138,8 +149,9 @@
                     <div class="col-sm-10">
                       <label for="status">Status:</label>
                       <select name="status" class="form-control">
-                        <option value="pendiente">Pendiente</option>
-                          <option value="atendida">Atendida</option>
+                        <option v-for="statu in status" class="lista">
+                          @{{ statu.nombre}}
+                        </option>
                       </select>
                     </div>
                 </div>
@@ -170,9 +182,12 @@
             //id asignado al div en el que funcionara vue
             el: '#app',
             //funcion al crear el objet
+            created: function() {
+              this.mostrarStatu();
+            },
             data:{
                 errors:[],
-                usuarios:[],
+                status:[],
                 fecha:'',
                 searchUsuario:{'username':'','nombre':'','paterno':'','materno':''},
                     },
@@ -186,6 +201,12 @@
                 },
                 mostrarCancelar:function(){
                     toastr.success('Eliminado');
+                },
+                mostrarStatu:function(){
+                    var urlStatus = 'status';
+                    axios.get(urlStatus).then(response => {
+                    this.status = response.data
+                  });
                 },
         }});
     </script>

@@ -3,10 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Status;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        
+    }
     //funcion para mostrar el index
     public function index()
     {
@@ -38,6 +44,12 @@ class PostsController extends Controller
     {
         $posts = Post::select('nombre_usuario','contenido','status')->where('status','atendida')->get();
         return $posts;  
+    }
+
+    public function status()
+    {
+         $status = Status::all();
+        return $status;
     }
 
      //funcion para mostrar quejas pendientes
@@ -91,7 +103,7 @@ class PostsController extends Controller
         $input = $request->all();
         $post->fill($input)->save();
 
-        return redirect("posts");
+        return redirect("quejas"); 
     }
 
 }

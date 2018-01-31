@@ -28,7 +28,7 @@
                                     {{$post->contenido}}
                                 </th>
                                 <th>
-                                    <a href="http://localhost/comer/proyecto3/public/posts/editposts/{{$post->id}}" ><button class="btn btn-primary">Editar</button> </a>
+                                    <a href="http://localhost:7878/posts/editposts/{{$post->id}}" ><button class="btn btn-primary">Editar</button> </a>
                                 <th>
                                   <!--  <a href="/posts/delete/{{$post->id}}" ><button class="btn btn-danger">Delete</button> </a>-->
                                 </th>
