@@ -107,10 +107,13 @@
                       <label for="delegacion">Delegacion o Sub Delegacion:</label>
                       <select name="delegacion" class="form-control">
                           <option value="valles">Valles Centrales</option>
-                          <option value="huajuapam">Huajuapam de leon</option>
+                          <option value="huajuapan">Huajuapam de leon</option>
                           <option value="matias">Matias Romero</option>
+                          <option value="tuxtepec">Tuxtepec</option>
+                          <option value="juchitan">Juchitan</option>
                           <option value="salina">Salina Cruz</option>
                           <option value="pinotepa">Pinotepa Nacional</option>
+                          <option value="puerto">Puerto Escondido</option>
                       </select>
                     </div>
                 </div>
@@ -140,7 +143,7 @@
                           <option value="duerme_horario">DUERME EN SU HORARIO DE SERVICIO</option>
                           <option value="inputualidad">INPUNTUALIDAD</option>
                           <option value="mala_actitud">MALA ACTITUD DE SERVICIO</option>
-                          
+
                       </select>
                     </div>
                 </div>

@@ -25,6 +25,7 @@ Route::get('quejas', 'PostsController@queja');
 Route::get('grafica', 'PostsController@grafica');
 Route::get('filtro', 'PostsController@filtro');
 Route::get('status', 'PostsController@status');
+Route::get('total', 'PostsController@total');
 
 //consumir
 Route::get('atendidas', 'PostsController@atendida');

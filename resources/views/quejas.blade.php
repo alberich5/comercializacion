@@ -40,7 +40,13 @@
                                     <br>
                                     CODIGO QUEJA:{{$post->codigoqueja}}
                                     <br>
-                                    STATUS:{{$post->status}}
+                                    STATUS:
+                                    @if('atendida'  == $post->status)
+                                      <span class="label label-success">Atendida</span>
+                                    @endif
+                                    @if('pendiente'  == $post->status)
+                                      Pendiente
+                                    @endif
                                     <br>
                                     DESCRIPCION DE LA QUEJA:{{$post->contenido}}
                                 </th>
