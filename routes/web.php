@@ -26,6 +26,7 @@ Route::get('grafica', 'PostsController@grafica');
 Route::get('filtro', 'PostsController@filtro');
 Route::get('status', 'PostsController@status');
 Route::get('total', 'PostsController@total');
+Route::get('global', 'PostsController@mostrarglobal');
 
 //consumir
 Route::get('atendidas', 'PostsController@atendida');

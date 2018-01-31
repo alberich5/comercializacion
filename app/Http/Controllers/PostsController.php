@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\Status;
 use DB;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
@@ -52,6 +53,16 @@ class PostsController extends Controller
     {
 
         return view('filtro');
+    }
+
+    public function mostrarMes()
+    {
+      $date = Carbon::now();
+    }
+    public function mostrarGlobal()
+    {
+      $global = Post::select(DB::raw('count(*) as total'))->get();
+    return $global;
     }
 
     //funcion para mostrar quejas atendidas

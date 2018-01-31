@@ -3,3 +3,8 @@
   color: white !important;
   font-weight: bold;
 }
+
+#tablatotal{
+  text-align: center;
+  width: 50%;
+}

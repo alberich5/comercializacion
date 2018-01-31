@@ -4,24 +4,26 @@
   <div id="consulta">
     <div class="container">
       <center><input type="text" name="" value="" v-model="fecha" disabled></center>
-        <center><h3>Total de Quejas por Delegaciones</h3></center>
+<h3>Total de Quejas por Delegaciones</h3>
 
-        <table class="table">
+<div id="tablatotal">
+
+        <table class="table table-condensed table-striped">
             <thead>
               <tr>
-                <th>Delagacion</th>
-                <th>Numero de Quejas</th>
+                <th class="col-sm-2">Delagacion</th>
+                <th class="col-sm-2">Numero de Quejas</th>
 
               </tr>
             </thead>
             <tbody>
               <tr v-for="valle in valles">
-                <td>valles</td>
+                <td>Valles Centrales</td>
                 <td>@{{ valle.total }}</td>
 
               </tr>
               <tr v-for="matia in matias">
-                <td>Matias</td>
+                <td>Matias Romero</td>
                 <td>@{{ matia.total }}</td>
               </tr>
               <tr v-for="hua in huajuapan">
@@ -49,9 +51,13 @@
                 <td>Pinotepa Nacional</td>
                 <td>@{{ pino.total }}</td>
               </tr>
-
+              <tr v-for="glo in global">
+                <td><span class="label label-primary">Global</span></td>
+                <td><span class="label label-primary">@{{ glo.total }}</span></td>
+              </tr>
             </tbody>
           </table>
+</div>
 
             @include('grafica.quejames')
             @include('grafica.ambito')
@@ -78,6 +84,7 @@
               this.totalsalina();
               this.totalpuerto();
               this.totalpinotepa();
+              this.totalglobal();
             },
             data:{
                 valles:'',
@@ -88,6 +95,7 @@
                 salina:'',
                 puerto:'',
                 pinotepa:'',
+                global:'',
                 delegacion:'matias',
                 fecha:'2018-01-01',
 
@@ -140,6 +148,12 @@
                     axios.get(url).then(response => {
                     this.pinotepa = response.data
                   });
+                },
+                totalglobal:function(){
+                  var url = 'global';
+                  axios.get(url).then(response => {
+                  this.global = response.data
+                });
                 },
         }});
     </script>
